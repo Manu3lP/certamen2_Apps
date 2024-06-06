@@ -20,9 +20,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             EquiposSeeder::class,
             JugadoresSeeder::class,
-            ResultadosSeeder::class,
             CampeonatosSeeder::class,
             PartidosSeeder::class,
+            ResultadosSeeder::class,
         ]);
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

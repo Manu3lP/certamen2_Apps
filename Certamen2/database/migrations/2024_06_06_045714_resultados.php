@@ -17,14 +17,14 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('partido_id');
             $table->foreign('partido_id')->references('id')->on('partidos')->onDelete('cascade');
-            $table->unsignedBigInteger('equipo_ganador_id');
-            $table->foreign('equipo_ganador_id')->references('id')->on('equipos');
-            $table->unsignedBigInteger('equipo_perdedor_id');
-            $table->foreign('equipo_perdedor_id')->references('id')->on('equipos');
+            $table->unsignedInteger('equipo_ganador');
+            $table->foreign('equipo_ganador')->references('id')->on('equipos');
+            $table->unsignedInteger('equipo_perdedor');
+            $table->foreign('equipo_perdedor')->references('id')->on('equipos');
             $table->integer('puntos_ganador');
             $table->integer('puntos_perdedor');
             $table->timestamps();
-        });    //
+        });
     }
 
     /**
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resultados');    //
+        Schema::dropIfExists('resultados');
     }
 };

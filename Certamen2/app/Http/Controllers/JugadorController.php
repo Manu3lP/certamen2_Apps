@@ -23,14 +23,14 @@ class JugadorController extends Controller
      */
     public function store(JugadorRequest $request)
     {
-        $piloto = new Jugador();
-        $piloto->nombre = $request->nombre;
-        $piloto->apellido = $request->apellido;
-        $piloto->pais = $request->pais;
-        $piloto->juego = $request->juego;
-        $piloto->equipo_id = $request->equipo;
-        $piloto->save();
-        return $piloto;
+        $jugador = new Jugador();
+        $jugador->nombre = $request->nombre;
+        $jugador->apellido = $request->apellido;
+        $jugador->pais = $request->pais;
+        $jugador->juego = $request->juego;
+        $jugador->equipo_id = $request->equipo;
+        $jugador->save();
+        return $jugador;
     }
 
     /**

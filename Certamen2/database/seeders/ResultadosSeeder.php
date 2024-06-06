@@ -14,13 +14,8 @@ class ResultadosSeeder extends Seeder
     public function run(): void
     {
         DB::table('resultados')->insert([
-            ['partido_id' => 1,
-            'equipo_ganador_id' => 1,
-            'equipo_perdedor_id' => 2,
-            'puntos_ganador' => 3,
-            'puntos_perdedor' => 1],
-            ['partido_id' => 2, 'equipo_ganador_id' => 3, 'equipo_perdedor_id' => 1, 'puntos_ganador' => 2, 'puntos_perdedor' => 1
-            ],
+            ['partido_id' => 1,'equipo_ganador' => 1,'equipo_perdedor' => 2,'puntos_ganador' => 3,'puntos_perdedor' => 1],
+            ['partido_id' => 2, 'equipo_ganador' => 3, 'equipo_perdedor' => 1, 'puntos_ganador' => 2, 'puntos_perdedor' => 1],
         ]);
     }
 }
