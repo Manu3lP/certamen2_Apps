@@ -14,12 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('campeonatos', function (Blueprint $table) {
-            $table->unsignedInteger('id')->autoIncrement();
-            $table->string('nombre',30);
-            $table->string('locacion',255);
-            $table->string('premios',255);
-            $table->dateTime('fecha');
-            // $table->timestamps();
+            $table->id();
+            $table->string('nombre');
+            $table->text('detalles');
+            $table->date('fecha_inicio');
+            $table->date('fecha_fin');
+            $table->text('reglas');
+            $table->string('premios');
+            $table->timestamps();
         });   //
     }
 

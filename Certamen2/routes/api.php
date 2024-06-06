@@ -2,6 +2,17 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{CampeonatoController,EquiposController,JugadorController
+,PartidoController,ResultadoController};
+
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');
+Route::apiResource('/campeonatos', CampeonatoController::class);
+Route::apiResource('/equipos', EquiposController::class);
+Route::apiResource('/jugadores', JugadorController::class);
+Route::apiResource('/partidos', PartidoController::class);
+Route::apiResource('/resultados', ResultadoController::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +25,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+

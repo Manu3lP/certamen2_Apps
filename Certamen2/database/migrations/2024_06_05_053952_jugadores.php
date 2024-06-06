@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nombre',20);
             $table->string('apellido',20);
             $table->string('pais',20);
-            $table->tinyInteger('juego_en_cual_participa');
+            $table->tinyInteger('juego');
             $table->unsignedInteger('equipo_id');
 
             // $table->timestamps();

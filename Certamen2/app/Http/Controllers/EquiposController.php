@@ -32,6 +32,7 @@ class EquiposController extends Controller
     {
         $equipo = new Equipo();
         $equipo->nombre = $request->nombre;
+        $equipo->perfil= $request->perfil;
         $equipo->save();
         return $equipo;
     }

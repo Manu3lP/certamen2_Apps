@@ -13,7 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-
+        Schema::create('partidos', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('campeonato_id');
+            $table->foreign('campeonato_id')->references('id')->on('campeonatos')->onDelete('cascade');
+            $table->dateTime('fecha_hora');
+            $table->string('lugar');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('partidos');    //
     }
 };
