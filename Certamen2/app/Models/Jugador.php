@@ -5,14 +5,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Jugador extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre', 'equipo_id'];
+    protected $table = 'jugadores';
+    public $timestamps = false;
 
-    public function equipo()
+    // Relación con el equipo
+    public function equipo(): BelongsTo
     {
         return $this->belongsTo(Equipo::class);
     }

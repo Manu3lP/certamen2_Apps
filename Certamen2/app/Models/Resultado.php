@@ -5,16 +5,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Resultado extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'partido_id', 'equipo_ganador_id', 'equipo_perdedor_id', 'puntos_ganador', 'puntos_perdedor'
-    ];
+    protected $table = 'resultados';
+    public $timestamps = false;
 
-    public function partido()
+    // Relación con partidos
+    public function partido(): BelongsTo
     {
         return $this->belongsTo(Partido::class);
     }

@@ -5,20 +5,31 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Partido extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['campeonato_id', 'fecha_hora', 'lugar'];
+    protected $table = 'partidos';
+    public $timestamps = false;
 
-    public function campeonato()
+    // Relación con equipos ganador
+    public function equipoGanador(): BelongsTo
     {
-        return $this->belongsTo(Campeonato::class);
+        return $this->belongsTo(Equipo::class, 'equipo_ganador');
     }
 
-    public function resultados()
+    // Relación con equipos perdedor
+    public function equipoPerdedor(): BelongsTo
     {
-        return $this->hasMany(Resultado::class);
+        return $this->belongsTo(Equipo::class, 'equipo_perdedor');
+    }
+
+    // Relación con resultados
+    public function resultado(): BelongsTo
+    {
+        return $this->belongsTo(Resultado::class);
     }
 }
+

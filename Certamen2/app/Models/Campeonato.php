@@ -5,16 +5,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Campeonato extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'nombre', 'detalles', 'fecha_inicio', 'fecha_fin', 'reglas', 'premios'
-    ];
+    protected $table = 'campeonatos';
+    public $timestamps = false;
 
-    public function partidos()
+    // Relación con equipos
+    public function equipos(): HasMany
+    {
+        return $this->hasMany(Equipo::class);
+    }
+
+    // Relación con partidos
+    public function partidos(): HasMany
     {
         return $this->hasMany(Partido::class);
     }
