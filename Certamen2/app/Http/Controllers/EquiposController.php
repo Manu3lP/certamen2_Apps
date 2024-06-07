@@ -14,7 +14,7 @@ class EquiposController extends Controller
     public function index()
     {
         // return Equipo::all();
-        return Equipo::orderBy('nombre')->get()->makeHidden('pilotos');
+        return Equipo::orderBy('nombre')->get()->makeHidden('jugadores');
     }
 
     /**
