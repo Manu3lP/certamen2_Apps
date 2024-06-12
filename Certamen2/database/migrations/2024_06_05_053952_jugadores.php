@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('apellido',20);
             $table->string('pais',20);
             $table->string('juego',30);
-            $table->unsignedInteger('equipo_id');
+            $table->unsignedBigInteger('equipo_id');
 
             // $table->timestamps();
 
