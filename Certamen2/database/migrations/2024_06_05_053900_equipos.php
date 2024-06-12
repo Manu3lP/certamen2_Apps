@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('equipos', function (Blueprint $table) {
-            $table->unsignedInteger('id')->autoIncrement();
+            $table->unsignedBigInteger('id')->autoIncrement();
             $table->string('nombre',20);
             $table->text('perfil');
             $table->timestamps();
