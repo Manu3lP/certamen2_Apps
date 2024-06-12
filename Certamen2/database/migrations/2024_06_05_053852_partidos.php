@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('campeonato_id');
             $table->foreign('campeonato_id')->references('id')->on('campeonatos')->onDelete('cascade');
+            $table->unsignedBigInteger('equipo_a_id');
+            $table->foreign('equipo_a_id')->references('id')->on('equipos')->onDelete('cascade');
+            $table->unsignedBigInteger('equipo_b_id');
+            $table->foreign('equipo_b_id')->references('id')->on('equipos')->onDelete('cascade');
             $table->dateTime('fecha_hora');
             $table->string('lugar');
             $table->timestamps();
