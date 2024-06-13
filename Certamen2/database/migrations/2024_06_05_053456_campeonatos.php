@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->text('detalles');
-            $table->date('fecha_inicio');
-            $table->date('fecha_fin');
+            $table->string('fecha_inicio');
+            $table->string('fecha_fin');
             $table->text('reglas');
             $table->string('premios');
             $table->timestamps();
