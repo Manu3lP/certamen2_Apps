@@ -21,6 +21,7 @@ class JugadorRequest extends FormRequest
      */
     public function rules(): array
     {
+        
         return [
             'nombre' => ['required','min:5','max:15'],
             'apellido' => ['required','min:2','max:15'],
