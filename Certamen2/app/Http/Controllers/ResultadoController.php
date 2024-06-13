@@ -19,8 +19,8 @@ class ResultadoController extends Controller
     {
         $resultado = new Resultado();
         $resultado->partido_id = $request->partido_id;
-        $resultado->equipo_perdedor = $request->nombre;
         $resultado->equipo_ganador = $request->nombre;
+        $resultado->equipo_perdedor = $request->nombre;
         $resultado->puntos_ganador = $request->puntos_ganador;
         $resultado->puntos_perdedor = $request->puntos_perdedor;
         $resultado->save();

@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('partido_id');
             $table->foreign('partido_id')->references('id')->on('partidos')->onDelete('cascade');
-            $table->unsignedInteger('equipo_ganador');
+            $table->unsignedBigInteger('equipo_ganador');
             $table->foreign('equipo_ganador')->references('id')->on('equipos');
-            $table->unsignedInteger('equipo_perdedor');
+            $table->unsignedBigInteger('equipo_perdedor');
             $table->foreign('equipo_perdedor')->references('id')->on('equipos');
             $table->integer('puntos_ganador');
             $table->integer('puntos_perdedor');

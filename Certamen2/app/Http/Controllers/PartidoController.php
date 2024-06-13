@@ -17,10 +17,11 @@ class PartidoController extends Controller
     public function store(PartidoRequest $request)
     {
         $partido = new Partido();
-        $partido->fecha_hora = $request->fecha_hora;
-        $partido->lugar = $request->lugar;
+        $partido->campeonato = $request->campeonato;
         $partido->equipo_a = $request->equipo;
         $partido->equipo_b = $request->equipo;
+        $partido->fecha_hora = $request->fecha_hora;
+        $partido->lugar = $request->lugar;
         $partido->save();
         return $partido;
     }

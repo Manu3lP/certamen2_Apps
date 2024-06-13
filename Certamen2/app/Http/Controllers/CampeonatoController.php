@@ -19,6 +19,7 @@ class CampeonatoController extends Controller
     {
         $campeonato = new Campeonato();
         $campeonato->nombre = $request->nombre;
+        $campeonato->detalles = $request->detalles ?? 'detalles por defecto';
         $campeonato->fecha_inicio = $request->fecha_inicio;
         $campeonato->fecha_fin = $request->fecha_fin;
         $campeonato->reglas = $request->reglas;
