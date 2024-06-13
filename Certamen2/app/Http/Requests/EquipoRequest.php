@@ -19,13 +19,24 @@ class EquipoRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules()
     {
-        return [];
+        return [
+            'nombre' => 'required','string','min:5','max:20',
+            'perfil' => 'required','string','min:20','max:50',
+        ];
     }
 
-    public function messages() :array
+    public function messages()
     {
-        return [];
+        return [
+                'nombre.required' => 'El nombre del equipo es requerido.',
+                'nombre.min' => 'El nombre del equipo debe tener como mínimo 5 caracteres.',
+                'nombre.max' => 'El nombre del equipo no debe exceder los 20 caracteres.',
+                
+                'perfil.required' => 'El perfil del equipo es requerido.',
+                'perfil.min' => 'El perfil del equipo debe tener como mínimo 20 caracteres.',
+                'perfil.max' => 'El perfil del equipo no debe exceder los 50 caracteres.',
+        ];
     }
 }

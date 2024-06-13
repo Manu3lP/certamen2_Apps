@@ -19,13 +19,39 @@ class ResultadoRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules()
     {
-        return [];
+        return [
+            'partido_id' => 'required','exists:partidos,id',
+            'equipo_ganador' => 'required','different:equipo_perdedor','exists:equipos,id',
+            'equipo_perdedor' => 'required','different:equipo_ganador','exists:equipos,id',
+            'puntos_ganador' => 'required','integer,min:0',
+            'puntos_perdedor' => 'required','integer,min:0',
+        ];
     }
 
-    public function messages() :array
+    public function messages()
     {
-        return [];
+        return [
+            'partido_id.required' => 'El ID del partido es requerido.',
+            'partido_id.exists' => 'El partido seleccionado no existe en la base de datos.',
+            
+            'equipo_ganador.required' => 'El equipo ganador es requerido.',
+            'equipo_ganador.different' => 'El equipo ganador y perdedor deben ser diferentes.',
+            'equipo_ganador.exists' => 'El equipo ganador seleccionado no existe en la base de datos.',
+            
+            'equipo_perdedor.required' => 'El equipo perdedor es requerido.',
+            'equipo_perdedor.different' => 'El equipo perdedor y ganador deben ser diferentes.',
+            'equipo_perdedor.exists' => 'El equipo perdedor seleccionado no existe en la base de datos.',
+            
+            'puntos_ganador.required' => 'Los puntos del equipo ganador son requeridos.',
+            'puntos_ganador.integer' => 'Los puntos del equipo ganador deben ser un número entero.',
+            'puntos_ganador.min' => 'Los puntos del equipo ganador deben ser como mínimo 0.',
+            
+            'puntos_perdedor.required' => 'Los puntos del equipo perdedor son requeridos.',
+            'puntos_perdedor.integer' => 'Los puntos del equipo perdedor deben ser un número entero.',
+            'puntos_perdedor.min' => 'Los puntos del equipo perdedor deben ser como mínimo 0.',
+        ];
+
     }
 }
