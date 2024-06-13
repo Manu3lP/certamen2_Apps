@@ -38,15 +38,23 @@ class JugadorController extends Controller
      */
     public function show(Jugador $jugador)
     {
-        //
+        return $jugador->load('equipo');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Jugador $jugador)
+    public function update(JugadorRequest $request, Jugador $jugador)
     {
-        //
+        $jugador->nombre = $request->nombre;
+        $jugador->apellido = $request->apellido;
+        $jugador->pais = $request->pais;
+        $jugador->juego = $request->juego;
+        $jugador->equipo_id = $request->equipo;
+        $jugador->save();
+
+        // Mensaje de éxito
+        return 'El jugador se ha actualizado correctamente.';
     }
 
     /**

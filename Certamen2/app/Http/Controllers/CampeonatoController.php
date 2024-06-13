@@ -34,9 +34,16 @@ class CampeonatoController extends Controller
         return $campeonato;
     }
 
-    public function update(Request $request, Campeonato $campeonato)
+    public function update(CampeonatoRequest $request, Campeonato $campeonato)
     {
-        $campeonato->update($request->validated());
+        $campeonato->update([
+            'nombre' => $request->nombre,
+            'detalles' => $request->detalles ?? 'detalles por defecto',
+            'fecha_inicio' => $request->fecha_inicio,
+            'fecha_fin' => $request->fecha_fin,
+            'reglas' => $request->reglas,
+            'premios' => $request->premios,
+        ]);
         
         return $campeonato;
     }

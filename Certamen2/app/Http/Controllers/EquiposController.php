@@ -42,25 +42,21 @@ class EquiposController extends Controller
      */
     public function show(Equipo $equipo)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Equipo $equipo)
-    {
-        //
+        return $equipo->makeHidden('jugadores');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Equipo $equipo)
+    public function update(EquipoRequest $request, Equipo $equipo)
     {
-        //
-    }
+        $equipo->nombre = $request->nombre;
+        $equipo->perfil = $request->perfil;
+        $equipo->save();
 
+        // Mensaje de éxito
+        return 'El equipo se ha actualizado correctamente.';
+    }
     /**
      * Remove the specified resource from storage.
      */
